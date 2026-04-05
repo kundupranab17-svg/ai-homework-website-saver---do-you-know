@@ -481,13 +481,12 @@ function newChat(){
   chat.innerHTML = "";
   checkEmptyState();
 }
-
 // PAGE LOAD FIX (IMPORTANT - MERGE WITH YOUR EXISTING)
-window.onload = () => {
+window.onload=()=>{
   setTimeout(()=>{
     splash.style.display="none";
     app.style.display="flex";
-    checkEmptyState();
+    checkEmptyState(); // 🔥 MUST
   },1200);
 };
 </script>
