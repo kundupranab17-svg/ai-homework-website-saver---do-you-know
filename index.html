@@ -193,9 +193,12 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
     <button class="btn"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Codex</span></button>
     <button class="btn"><svg viewBox="0 0 24 24"><path d="M3 7h5l2 3h11v11H3z"/></svg><span>Projects</span></button>
 
-    <div class="yourChats">Your Chats</div>
-
-    <div class="chatItem">
+    <div class="yourChats" onclick="toggleChats()" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
+  <span>Your Chats</span>
+  <span id="chatArrow">▼</span>
+</div>
+<div id="chatList">
+  <div class="chatItem">
       <div class="left">
         <div class="dot"></div>
         <span>Example Chat</span>
@@ -584,6 +587,18 @@ function handleAction(){
 function toggleTheme(){
   document.body.classList.toggle("dark");
   document.body.classList.toggle("light");
+}
+function toggleChats(){
+  let list = document.getElementById("chatList");
+  let arrow = document.getElementById("chatArrow");
+
+  if(list.style.display === "none"){
+    list.style.display = "block";
+    arrow.innerText = "▼";
+  }else{
+    list.style.display = "none";
+    arrow.innerText = "▶";
+  }
 }
 </script>
 
