@@ -346,6 +346,7 @@ input{flex:1;background:none;border:none;color:inherit;outline:none;}
   .topbar{padding:0 10px;}
   .menu3{width:180px;}
   .menu3 button{font-size:12px; padding:8px 12px;}
+}
 </style>
 
 <script>
@@ -358,136 +359,6 @@ function toggleMenu3(e){
 document.addEventListener("click",()=>document.querySelectorAll(".menu3").forEach(m=>m.style.display="none"));
 
 function toggleTheme(){document.body.classList.toggle("dark");document.body.classList.toggle("light");}
-</script>
-  <!-- EMPTY STATE TEXT -->
-<div id="emptyState" style="display:none; text-align:center; margin-top:40px; font-size:22px; font-weight:600;">
-  What are you working on?
-</div>
-
-<!-- TOP RIGHT ICONS -->
-<div id="topRightIcons" style="position:absolute; top:10px; right:15px; display:none; flex-direction:column; align-items:center; gap:12px;">
-
-  <!-- TEMP CHAT -->
-  <div style="text-align:center; cursor:pointer;" onclick="toggleLabel(this)">
-    <div class="icon">🕓</div>
-    <div class="label" style="display:none; font-size:11px;">Temporary Chat</div>
-  </div>
-
-  <!-- GROUP CHAT -->
-  <div style="text-align:center; cursor:pointer;" onclick="toggleLabel(this)">
-    <div class="icon">👥</div>
-    <div class="label" style="display:none; font-size:11px;">Group Chat</div>
-  </div>
-
-</div>
-
-<style>
-/* CENTER INPUT */
-.centerInput{
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  margin-top:60px;
-}
-
-/* TOP RIGHT ICONS */
-#topRightIcons .icon{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#2f2f2f;
-}
-#topRightIcons .icon:hover{
-  background:#3a3a3a;
-}
-.centerInput{
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  margin-top:60px;
-}
-
-#topRightIcons .icon{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#2f2f2f;
-}
-#topRightIcons .icon:hover{
-  background:#3a3a3a;
-}
-</style>
-
-<script>
-// EMPTY STATE CHECK
-function checkEmptyState(){
-  let chat = document.getElementById("chat");
-  let inputBar = document.querySelector(".inputBar");
-  let empty = document.getElementById("emptyState");
-
-  if(chat.children.length === 0){
-    empty.style.display = "block";
-    inputBar.classList.add("centerInput");
-    document.getElementById("topRightIcons").style.display = "flex";
-  }else{
-    empty.style.display = "none";
-    inputBar.classList.remove("centerInput");
-    document.getElementById("topRightIcons").style.display = "none";
-  }
-}
-
-// LABEL TOGGLE
-function toggleLabel(el){
-  let label = el.querySelector(".label");
-  label.style.display = label.style.display === "block" ? "none" : "block";
-}
-
-// NEW CHAT FUNCTION
-function newChat(){
-  let chat = document.getElementById("chat");
-  chat.innerHTML = "";
-  checkEmptyState();
-}
-// PAGE LOAD FIX (IMPORTANT - MERGE WITH YOUR EXISTING)
-window.onload=()=>{
-  setTimeout(()=>{
-    splash.style.display="none";
-    app.style.display="flex";
-    checkEmptyState(); // 🔥 MUST
-  },1200);
-};
-function checkEmptyState(){
-  let chat = document.getElementById("chat");
-  let inputBar = document.querySelector(".inputBar");
-  let empty = document.getElementById("emptyState");
-
-  if(chat.children.length === 0){
-    empty.style.display = "block";
-    inputBar.classList.add("centerInput");
-    document.getElementById("topRightIcons").style.display = "flex";
-  }else{
-    empty.style.display = "none";
-    inputBar.classList.remove("centerInput");
-    document.getElementById("topRightIcons").style.display = "none";
-  }
-}
-
-function toggleLabel(el){
-  let label = el.querySelector(".label");
-  label.style.display = label.style.display === "block" ? "none" : "block";
-}
-
-function newChat(){
-  let chat = document.getElementById("chat");
-  chat.innerHTML = "";
-  checkEmptyState();
-}
 </script>
 <div class="chat" id="chat"></div>
 
